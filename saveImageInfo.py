@@ -1,6 +1,6 @@
 from imageai.Detection import ObjectDetection
 import os
-from saveImagetoDb import generateJson
+from manageDb import save2Db
  
 
 from flask import Flask
@@ -29,7 +29,8 @@ def get():
         detectedObject.append(eachObject["name"])
     
     print(detectedObject)
-    generateJson( filename, detectedObject)
+    save2Db( filename, detectedObject)
+    
     return(output)
 
 app.run(host='46.101.154.46', port=5000)
