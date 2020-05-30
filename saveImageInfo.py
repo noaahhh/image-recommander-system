@@ -1,26 +1,20 @@
 from imageai.Detection import ObjectDetection
 import os
 from manageDb import save2Db
- 
-
-from flask import Flask
-from flask import request
-app = Flask(__name__)
-
+from similarity import similarityService
 #ciktinin üretilmesi zaman aliyor olabilir.
 
-@app.route('/saveImageInfo', methods=['GET'])
-
-def get():
+def saveImageInfo2Db(filename):
     
-    filename = request.args.get("filename")
-    execution_path = os.getcwd()
-    
+    #filename = request.args.get("filename")
+    execution_path = "/home/yusufnuh/services"
+    imagefile_path ="/home/yusufnuh/files"
+    outputfile_path="/home/yusufnuh/out"
     detector = ObjectDetection()
     detector.setModelTypeAsRetinaNet()
     detector.setModelPath( os.path.join(execution_path , "resnet50_coco_best_v2.0.1.h5"))
     detector.loadModel()
-    detections = detector.detectObjectsFromImage(input_image=os.path.join(execution_path , filename), output_image_path=os.path.join(execution_path , "imagenew.jpg"))
+    detections = detector.detectObjectsFromImage(input_image=os.path.join(imagefile_path , filename), output_image_path=os.path.join(outputfile_path , "output.jpg"))
 
     output = "SONUCLAR: | "
     detectedObject=[]
@@ -29,8 +23,9 @@ def get():
         detectedObject.append(eachObject["name"])
     
     print(detectedObject)
-    save2Db( filename, detectedObject)
+    resultObject=save2Db( filename, detectedObject)
+    if resultObject.acknowledged is True:
+        similarityService()
     
-    return(output)
+    return output
 
-app.run(host='46.101.154.46', port=5000)
