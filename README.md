@@ -1,1 +1,1 @@
-# image recommander system
+# image recommender system
