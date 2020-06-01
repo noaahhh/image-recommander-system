@@ -1,1 +1,1 @@
-# bitirme-projesi
+# image recommender system
