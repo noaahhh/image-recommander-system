@@ -2,14 +2,6 @@ from sklearn.metrics.pairwise import cosine_similarity
 import pymongo
 from manageDb import connection
 import copy
-#a=[]
-#b=[]
-#images=[]
-#names_1=[]
-#names_2=[]
-#tmp=[]
-#similar=[]
-#query=None
 
 def first_Image_List_Generator(name,my_list,collection,namelist):
     mydoc=collection.find({"_id":name})
