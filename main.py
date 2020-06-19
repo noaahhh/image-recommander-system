@@ -75,27 +75,6 @@ def saveImageInfo():
     results=saveImageInfo2Db(img)
     return results
 
-@app.route('/api/bitirme/images/deneme/get',methods=['GET'])
-def deneme():
-    
-    if 'img' in request.args:
-        img =request.args['img']
-    else:
-        return "Error: No e field provided. Please specify an name."
-    
-    result=getSimilarImages(img)
-    for entry in result:
-        frame={"name" : "null" , "url" : "null"}
-        url = "http://138.197.195.224:5000/api/bitirme/images?name=" + entry
-        frame.update({"name" : entry})
-        frame.update({"url": url})
-        images.append(frame)
-    
-    jsonobject=json.dumps(images)
-    images.clear()
-    
-    return jsonobject
-
 
 if __name__ == '__main__':
     app.run(host='138.197.195.224',port='5000', debug=True)
