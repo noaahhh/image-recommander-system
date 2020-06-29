@@ -9,3 +9,7 @@
 | /api/bitirme/images/get?img='foo.jpg' | `GET` | Empty | Get similar images of given image. |
  /api/bitirme/images?name='bar.jpg' | `GET` | Empty | Get the image file. |
 | /api/bitirme/saveImagesInfo?img='foo.jpg' | `GET` | Empty | Run object detection service . |
+
+## Aplication Videos
+
+Android app video -->![](bitrme_android.mp4?raw=true)
