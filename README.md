@@ -13,5 +13,3 @@
 ## Aplication Videos
 
 Android app video -> bitrme_android.mp4
-
-Web app video -> Anasayfa-similarator-Google-Chrome-2020-06-15 1248-40.mp4
