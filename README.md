@@ -42,22 +42,22 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-*vsftpd
+* vsftpd
 ```sh
 sudo apt install vsftpd
 # or for Redhat based OS
 
 sudo yum install vsftpd
 ```
-*imageAI 
+* imageAI 
   ```sh
   pip3 install  imageAI
   ```
-*flask
+* flask
 ```sh
 pip3 install -U flask
 ```
-*mongoDB
+* mongoDB
 ```sh
 
 $ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
