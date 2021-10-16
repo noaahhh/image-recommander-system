@@ -7,9 +7,9 @@ from similarity import similarityService
 def saveImageInfo2Db(filename):
     
     #filename = request.args.get("filename")
-    execution_path = "/home/yusufnuh/services"
-    imagefile_path ="/home/yusufnuh/files"
-    outputfile_path="/home/yusufnuh/out"
+    execution_path = "/home/username/services"
+    imagefile_path ="/home/username/files"
+    outputfile_path="/home/username/out"
     detector = ObjectDetection()
     detector.setModelTypeAsRetinaNet()
     detector.setModelPath( os.path.join(execution_path , "resnet50_coco_best_v2.0.1.h5"))

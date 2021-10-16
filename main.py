@@ -20,7 +20,7 @@ def getAll():
     random.shuffle(entries)
     for entry in entries:
         frame={"name" : "null" , "url" : "null"}
-        url = "http://138.197.195.224:5000/api/bitirme/images?name=" + entry
+        url = "http://ip_address:5000/api/bitirme/images?name=" + entry
         frame.update({"name" : entry})
         frame.update({"url": url})
         images.append(frame)
@@ -41,7 +41,7 @@ def getByImageName():
     result=getSimilarImages(img)
     for entry in result:
         frame={"name" : "null" , "url" : "null"}
-        url = "http://138.197.195.224:5000/api/bitirme/images?name=" + entry
+        url = "http://ip_address:5000/api/bitirme/images?name=" + entry
         frame.update({"name" : entry})
         frame.update({"url": url})
         images.append(frame)
@@ -61,7 +61,7 @@ def getSingle():
     else:
         return "Error: No name field provided. Please specify an name."
     
-    return send_file('/home/yusufnuh/files/'+name)
+    return send_file('/home/username/files/'+name)
 
 
 @app.route('/api/bitirme/saveImageInfo',methods=['GET'])
@@ -77,4 +77,4 @@ def saveImageInfo():
 
 
 if __name__ == '__main__':
-    app.run(host='138.197.195.224',port='5000', debug=True)
+    app.run(host='ip_address',port='5000', debug=True)
